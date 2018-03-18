@@ -1,40 +1,40 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:insert="header :: copy">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Account list</title>
 </head>
+
 <body>
-<p>All the accounts will be listed here!</p>
-<p th:text="${message}"></p>
+<div class="container">
+    <div class="starter-template" th:if="${accounts}">
+        <h1>All the accounts will be listed here!</h1>
 
-<div th:if="${accounts}">
-    <p>Accounts in the database</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Account id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr scope="row" th:each="account : ${accounts}">
+                <td>
+                    <a href="account.html"
+                       th:href="@{|/${account.id}|}"
+                       th:text="|${account.id}|"></a>
+                </td>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Account id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="account : ${accounts}">
-            <td>
-                <a href="account.html"
-                   th:href="@{|/${account.id}|}"
-                   th:text="|${account.id}|"></a>
-            </td>
-
-            <td th:text="${account.firstName}">First Name</td>
-            <td th:text="${account.lastName}">Last Name</td>
-        </tr>
-        </tbody>
-    </table>
+                <td th:text="${account.firstName}">First Name</td>
+                <td th:text="${account.lastName}">Last Name</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
