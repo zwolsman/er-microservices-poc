@@ -1,2 +1,22 @@
+#Custom services
 services:
   accounts: "http://accounts-service"
+
+spring:
+  application:
+    name: web-service
+  freemarker:
+    enabled: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/web-server/templates/
+
+error:
+  path=/error
+
+eureka:
+  instance:
+     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
