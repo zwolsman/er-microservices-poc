@@ -1,2 +1,2 @@
 services:
-  account: "http://accounts-service"
+  accounts: "http://accounts-service"
