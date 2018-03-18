@@ -6,9 +6,12 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer
 
 @SpringBootApplication
 @EnableEurekaServer
-class RegistrationServer
-
-fun main(args: Array<String>) {
-    System.setProperty("spring.config.name", "registration-server")
-    runApplication<RegistrationServer>(*args)
+class RegistrationServer {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            System.setProperty("spring.config.name", "registration-server")
+            runApplication<RegistrationServer>(*args)
+        }
+    }
 }

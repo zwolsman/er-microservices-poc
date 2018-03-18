@@ -6,9 +6,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 
 @SpringBootApplication
 @EnableEurekaClient
-class AccountsServer
-
-fun main(args: Array<String>) {
-    System.setProperty("spring.config.name", "accounts-server");
-    runApplication<AccountsServer>(*args)
+class AccountsServer {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            System.setProperty("spring.config.name", "accounts-server");
+            runApplication<AccountsServer>(*args)
+        }
+    }
 }
