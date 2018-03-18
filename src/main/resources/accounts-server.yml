@@ -1,0 +1,17 @@
+spring:
+  application:
+     name: accounts-service
+  freemarker:
+    enabled: false
+  thymeleaf:
+    enabled: false
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
