@@ -8,12 +8,8 @@
     <title>Account list</title>
 </head>
 <body>
-<p>All the accounts will be listed here!</p>
-<p th:text="${message}"></p>
-
-<div th:if="${accounts}">
-    <p>Accounts in the database</p>
-
+<p>Current selected account:</p>
+<div>
     <table>
         <thead>
         <tr>
@@ -23,16 +19,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="account : ${accounts}">
-            <td>
-                <a href="account.html"
-                   th:href="@{|/${account.id}|}"
-                   th:text="|${account.id}|"></a>
-            </td>
-
-            <td th:text="${account.firstName}">First Name</td>
-            <td th:text="${account.lastName}">Last Name</td>
-        </tr>
+        <td th:text="${account.id}">Id</td>
+        <td th:text="${account.firstName}">First Name</td>
+        <td th:text="${account.lastName}">Last Name</td>
         </tbody>
     </table>
 </div>

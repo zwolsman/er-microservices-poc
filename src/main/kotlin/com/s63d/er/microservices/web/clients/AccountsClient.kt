@@ -22,7 +22,11 @@ class AccountsClient {
     private val logger = LoggerFactory.getLogger(this::class.java)!!
     fun all(): Array<Account> {
         logger.info("Getting all the accounts")
-
         return restTemplate.getForObject(BASE_URL, Array<Account>::class.java)!!
+    }
+
+    fun findById(id: Long): Account {
+        logger.info("Getting account $id")
+        return restTemplate.getForObject("$BASE_URL/$id", Account::class.java)!!
     }
 }
